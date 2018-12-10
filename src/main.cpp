@@ -1,8 +1,11 @@
 #include <iostream>
 #include <vector>
+#include "student_private.h"
+#include "student_public.h"
 #include "vehicle.h"
 
 int main() {
+/*
     std::cout << "Creating car #1:" << std::endl;
     Car car1;
     std::cout << "Creating car #2:" << std::endl;
@@ -32,6 +35,16 @@ int main() {
         vehicle_->stop();
     }
     std::cout << "--------------------" << std::endl;
+*/
 
+    Student student("Vassily Poupkine", 10);
+    std::cout << student;
+    student = Student(5);
+    std::cout << student;
+    
+    StudentPrivate st("Homer Simpson", 5);
+    std::cout << st;
+    st = StudentPrivate(10);
+    std::cout << st;
     return 0;
 }

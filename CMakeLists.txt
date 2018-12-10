@@ -11,5 +11,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wshadow -Wunde
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_executable(${PROJECT_NAME}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/student_public.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/student_private.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
 )
