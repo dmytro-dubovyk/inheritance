@@ -1,8 +1,12 @@
 #include <iostream>
 #include <vector>
+
+#include "circle.h"
+#include "engine.h"
+#include "mybaseclass.h"
 #include "student_private.h"
 #include "student_public.h"
-#include "vehicle.h"
+//#include "vehicle.h"
 
 int main() {
 /*
@@ -46,5 +50,25 @@ int main() {
     std::cout << st;
     st = StudentPrivate(10);
     std::cout << st;
+
+    Car car;
+    car.start();
+
+    AnotherCar car2;
+    car2.start();
+    
+    CircleInherited circle1(10.0f);
+    circle1.setRadius(12.0);
+    std::cout << "Radius #1 = " << circle1.getRadius()
+              << ", Major radius = " << circle1.getMajorRadius() << std::endl;
+    circle1.getMajorRadius();
+
+    CircleComposed circle2(11.0f);
+    circle2.setRadius(13.0);
+    std::cout << "Radius #2 = " << circle2.getRadius() << std::endl;
+    
+    Derived d;
+    d.processData();
+
     return 0;
 }
