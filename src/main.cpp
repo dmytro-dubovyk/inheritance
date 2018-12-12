@@ -7,6 +7,8 @@
 #include "student_private.h"
 #include "student_public.h"
 //#include "vehicle.h"
+#include "virtual_worker.h"
+#include "worker.h"
 
 int main() {
 /*
@@ -40,7 +42,7 @@ int main() {
     }
     std::cout << "--------------------" << std::endl;
 */
-
+/*
     Student student("Vassily Poupkine", 10);
     std::cout << student;
     student = Student(5);
@@ -56,7 +58,10 @@ int main() {
 
     AnotherCar car2;
     car2.start();
-    
+
+    BigCar car3;
+    car3.start();
+
     CircleInherited circle1(10.0f);
     circle1.setRadius(12.0);
     std::cout << "Radius #1 = " << circle1.getRadius()
@@ -69,6 +74,22 @@ int main() {
     
     Derived d;
     d.processData();
+*/
+
+    //using namespace Workers;
+    using namespace VirtualWorkers;
+
+    Waiter bob("Bob Apple", 314L, 5);
+    Singer bev("Beverly Hills", 522L, 3);
+    Waiter w_temp;
+    Singer s_temp;
+    Worker* pw[4] = { &bob, &bev, &w_temp, &s_temp };
+    int i{};
+    for (i = 2; i < 4; i++) pw[i]->set();
+    for (i = 0; i < 4; i++) {
+        pw[i]->show();
+        std::cout << std::endl;
+    }
 
     return 0;
 }

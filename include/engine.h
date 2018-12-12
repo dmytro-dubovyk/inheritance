@@ -21,7 +21,7 @@ class Car : private Engine { // Car has-a Engine
 public:
     Car(int nc = 4) : Engine(nc) {}
 
-    void start() {
+    virtual void start() {
         std::cout << "Car with " << Engine::getCylinder()
                   << " cylinder engine started" << std::endl;
         Engine:: start();
@@ -41,5 +41,14 @@ public:
 private:
     Engine engine; // Car has-a Engine
  };
+
+class BigCar : protected Car {
+public:
+    BigCar(int nc = 8) : Car(nc) {}
+    void start() {
+        std::cout << "Big Car started" << std::endl;
+        Car::start();
+    }
+};
 
 #endif
