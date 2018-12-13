@@ -9,6 +9,7 @@
 //#include "vehicle.h"
 #include "virtual_worker.h"
 #include "worker.h"
+#include "undefined.h"
 
 int main() {
 /*
@@ -76,6 +77,9 @@ int main() {
     d.processData();
 */
 
+    BigCar car;
+    car.start();
+
     //using namespace Workers;
     using namespace VirtualWorkers;
 
@@ -90,6 +94,10 @@ int main() {
         pw[i]->show();
         std::cout << std::endl;
     }
+
+    F f;
+    f.f1();
+    f.f2();
 
     return 0;
 }
