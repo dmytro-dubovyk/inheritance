@@ -2,17 +2,17 @@
 #include <vector>
 
 #include "circle.h"
-#include "engine.h"
+//#include "engine.h"
 #include "mybaseclass.h"
 #include "student_private.h"
 #include "student_public.h"
-//#include "vehicle.h"
+#include "vehicle.h"
 #include "virtual_worker.h"
 #include "worker.h"
 #include "undefined.h"
 
 int main() {
-/*
+// Block #1
     std::cout << "Creating car #1:" << std::endl;
     Car car1;
     std::cout << "Creating car #2:" << std::endl;
@@ -42,13 +42,15 @@ int main() {
         vehicle_->stop();
     }
     std::cout << "--------------------" << std::endl;
-*/
+
+
+// Block #2
 /*
     Student student("Vassily Poupkine", 10);
     std::cout << student;
     student = Student(5);
     std::cout << student;
-    
+
     StudentPrivate st("Homer Simpson", 5);
     std::cout << st;
     st = StudentPrivate(10);
@@ -62,7 +64,10 @@ int main() {
 
     BigCar car3;
     car3.start();
+*/
 
+// Block #3
+/*
     CircleInherited circle1(10.0f);
     circle1.setRadius(12.0);
     std::cout << "Radius #1 = " << circle1.getRadius()
@@ -72,10 +77,10 @@ int main() {
     CircleComposed circle2(11.0f);
     circle2.setRadius(13.0);
     std::cout << "Radius #2 = " << circle2.getRadius() << std::endl;
-    
+
     Derived d;
     d.processData();
-*/
+
 
     BigCar car;
     car.start();
@@ -102,6 +107,6 @@ int main() {
     F f;
     f.f1();
     f.f2();
-
+*/
     return 0;
 }
