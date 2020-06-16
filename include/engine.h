@@ -5,7 +5,8 @@
 
 class Engine {
 public:
-    Engine(int nc) : cylinder(nc) {}
+    Engine(int nc) : cylinder(nc) { std::cout << "Engine()" << std::endl; }
+    ~Engine() { std::cout << "~Engine" << std::endl; }
 
     void start() const {
         std::cout << getCylinder() << " cylinder engine started" << std::endl;
@@ -19,7 +20,8 @@ private:
 
 class Car : protected Engine { // Car has-a Engine
 public:
-    Car(int nc = 4) : Engine(nc) {}
+    Car(int nc = 4) : Engine(nc) { std::cout << "Car()" << std::endl; }
+    ~Car() {std::cout << "~Car" << std::endl;}
 
     void start() {
         std::cout << "Car with " << Engine::getCylinder()
@@ -30,7 +32,8 @@ public:
 
 class AnotherCar {
 public:
-    AnotherCar(int n = 6): engine(n) {}  
+    AnotherCar(int n = 6): engine(n) { std::cout << "AnotherCar" << std::endl;}
+    ~AnotherCar() { std::cout << "~AnotherCar" << std::endl;}
 
     void start() {
         std::cout << "Car with " << engine.getCylinder()
@@ -50,6 +53,7 @@ public:
         Car::start();
         Engine::start();
     }
+    ~BigCar() {std::cout << "~Big Car";}
 
 };
 

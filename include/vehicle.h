@@ -22,7 +22,7 @@ class FourWheeler {
     }
     ~FourWheeler() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
 
-    virtual void drive() { std::cout << "calling " << __PRETTY_FUNCTION__ << std::endl; }
+    void drive() { std::cout << "calling " << __PRETTY_FUNCTION__ << std::endl; }
     virtual void stop() { std::cout << "calling " << __PRETTY_FUNCTION__ << std::endl; }
 };
 
@@ -45,11 +45,11 @@ public:
         std::cout << "This is a Four Wheeler Car" << std::endl;
     }
 
-    virtual void drive() { std::cout << "calling " << __PRETTY_FUNCTION__ << std::endl; }
-    virtual void stop() { std::cout << "calling " << __PRETTY_FUNCTION__ << std::endl; }
+    void drive() { std::cout << "calling " << __PRETTY_FUNCTION__ << std::endl; }
+    void stop() { std::cout << "calling " << __PRETTY_FUNCTION__ << std::endl; }
 };
 
-class Bus: public Vehicle {
+class Bus : public Vehicle {
 public:
     Bus() { std::cout << "This is a Bus" << std::endl; }
     ~Bus() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
