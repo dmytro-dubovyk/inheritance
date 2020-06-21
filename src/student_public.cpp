@@ -1,5 +1,7 @@
 #include "student_public.h"
 
+constexpr auto kDefaultName = "Anonymous";
+
 double Student::average() const {
     return scores_.size() > 0 ? scores_.sum() / scores_.size() : 0;
 }
@@ -29,6 +31,26 @@ std::ostream& Student::arrOut(std::ostream& os) const {
     } else { os << "We've got empty array!" << std::endl; }
     return os;
 }
+
+Student::Student() : name_(kDefaultName), scores_() {}
+
+Student::Student(const std::string &s)
+    : name_(s)
+    , scores_() {}
+
+Student::Student(int n) : name_(kDefaultName), scores_(n) {}
+
+Student::Student(const std::string &s, int n)
+    : name_(s)
+    , scores_(n) {}
+
+Student::Student(const std::string &s, const Student::ArrayDbT &a)
+    : name_(s)
+    , scores_(a) {}
+
+Student::Student(const char *str, const double *pd, int n)
+    : name_(str)
+    , scores_(pd, n) {}
 
 std::istream& operator >> (std::istream& is, Student& st) {
     is >> st.name_;
