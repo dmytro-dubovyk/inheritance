@@ -3,6 +3,7 @@
 #include <iostream>
 
 namespace VirtualWorkers {
+static constexpr auto kVtypes = 7; //number of items in Voices enum
 
 Worker::~Worker() { std::cout << "destroying Worker object" << std::endl; }
 

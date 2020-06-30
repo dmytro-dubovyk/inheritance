@@ -14,7 +14,8 @@ protected:
     virtual void get();
 
 public:
-    Worker() : fullname("Anonymous"), id(0L) {}
+    Worker()
+      : fullname("Anonymous"), id(0L) {}
     Worker(const std::string& s, long n)
       : fullname(s), id(n) {}
     virtual ~Worker() = 0;
@@ -32,7 +33,8 @@ protected:
     virtual void get();
 
 public:
-    Waiter() : Worker(), rating(0) {}
+    Waiter()
+      : Worker(), rating(0) {}
     Waiter(const std:: string& s, long n, int p = 0)
       : Worker(s, n), rating(p) {}
     Waiter(const Worker& wk, int p = 0)
@@ -44,7 +46,6 @@ public:
 class Singer : public virtual Worker {
 protected:
     enum class Voices { other, alto, contralto, soprano, bass, baritone, tenor };
-    static constexpr auto kVtypes = 7; //number of items in enum
 
     virtual void data() const;
     virtual void get();
@@ -53,7 +54,8 @@ private:
     int voice;
 
 public:
-    Singer() : Worker(), voice(static_cast<int>(Voices::other)) {}
+    Singer()
+      : Worker(), voice(static_cast<int>(Voices::other)) {}
     Singer(const std::string& s, long n, int v = static_cast<int>(Voices::other))
       : Worker(s, n), voice(v) {}
     Singer(const Worker& wk, int v = static_cast<int>(Voices::other))
@@ -62,7 +64,7 @@ public:
     void show() const;
 };
 
-class SingingWaiter : public Waiter, public Singer {
+class SingingWaiter final : public Waiter, public Singer {
 protected:
     void data() const;
     void get ();

@@ -5,29 +5,41 @@
 
 class B {
 public:
-    short f1() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
+    short f1() {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        return 0;
+    }
 };
 
 class C : virtual public B {
 public:
-    long f1() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
-    int f2() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
+    long f1() {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        return 0;
+    }
+
+    int f2() {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        return 0;
+    }
 };
 
 class D : public C{};
 
 class E : virtual public B {
 protected:
-    int f2() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
+    int f2() {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        return 0;
+    }
 };
 
 class F: public D, public E{
 public:
     int f2() {
         E::f2();
-        C::f2();
+        return C::f2();
     }
-
 };
 
 #endif
